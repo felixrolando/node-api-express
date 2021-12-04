@@ -4,11 +4,11 @@ import { productRouter } from "./product.js";
 import { wishRouter } from "./wish.js";
 import { userRouter } from "./user.js";
 
-const indexRouter = express.Router();
+const indexRouterV1 = express.Router();
 
-indexRouter.use(cartRouter);
-indexRouter.use(productRouter);
-indexRouter.use(wishRouter);
-indexRouter.use(userRouter);
+indexRouterV1.use(cartRouter);
+indexRouterV1.use(productRouter);
+indexRouterV1.use(wishRouter);
+indexRouterV1.use(userRouter);
 
-export { indexRouter };
+export { indexRouterV1 };
