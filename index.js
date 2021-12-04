@@ -3,7 +3,7 @@ import { indexRouter } from "./src/router/index.js";
 
 const app = express();
 
-const port = process.env.PORT;
+const port = process.env.PORT; //env
 
 app.use(indexRouter);
 
