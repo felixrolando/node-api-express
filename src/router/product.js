@@ -1,19 +1,23 @@
 import express from "express";
-import { getProducts } from "../controller/productController.js";
+import {
+  getProducts,
+  findProductById,
+} from "../controller/productController.js";
 
 const productRouter = express.Router();
 
-productRouter.get("/products", getProducts);
+productRouter.get("/product", getProducts);
+productRouter.get("/product/:id", findProductById);
 
-productRouter.post("/products", function (req, res) {
+productRouter.post("/product", function (req, res) {
   res.send("save products");
 });
 
-productRouter.put("/products", function (req, res) {
+productRouter.put("/product", function (req, res) {
   res.send("update products");
 });
 
-productRouter.delete("/products", function (req, res) {
+productRouter.delete("/product", function (req, res) {
   res.send("delete products");
 });
 

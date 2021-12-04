@@ -5,11 +5,11 @@ const getProducts = (req, res) => {
 };
 
 const findProductById = (req, res) => {
-  const id = Number(req.params.productID);
+  const id = req.params.id;
   const product = dataProducts.find((product) => product.id === id);
 
   if (!product) {
-    return res.status(404).send("Product not found");
+    return res.status(404).json({ message: "Product not found" });
   }
   res.json(product);
 };
@@ -25,7 +25,7 @@ const createProduct = (req, res) => {
 };
 
 const updateProduct = (req, res) => {
-  const id = Number(req.params.productID);
+  const id = req.params.id;
   const index = dataProducts.findIndex((product) => product.id === id);
   const updatedProduct = {
     id: dataProducts[index].id,
@@ -38,7 +38,7 @@ const updateProduct = (req, res) => {
 };
 
 const deleteProductById = (req, res) => {
-  const id = Number(req.params.productID);
+  const id = req.params.id;
   const index = dataProducts.findIndex((product) => product.id === id);
   dataProducts.splice(index, 1);
   res.status(200).json("Product deleted");
