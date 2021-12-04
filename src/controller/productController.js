@@ -2,7 +2,7 @@ const getProducts = (req, res) => {
   res.json(products);
 };
 
-const getProduct = (req, res) => {
+const findProductById = (req, res) => {
   const id = Number(req.params.productID);
   const product = products.find((product) => product.id === id);
 
@@ -35,11 +35,17 @@ const updateProduct = (req, res) => {
   res.status(200).json("Product updated");
 };
 
-const deleteProduct = (req, res) => {
+const deleteProductById = (req, res) => {
   const id = Number(req.params.productID);
   const index = products.findIndex((product) => product.id === id);
   products.splice(index, 1);
   res.status(200).json("Product deleted");
 };
 
-export { getProducts, getProduct, createProduct, updateProduct, deleteProduct };
+export {
+  getProducts,
+  findProductById,
+  createProduct,
+  updateProduct,
+  findProductById,
+};
