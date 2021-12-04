@@ -5,9 +5,9 @@ import { indexRouter } from "./src/router/index.js";
 
 const app = express();
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
-app.use(indexRouter);
+app.use("/api/v1/", indexRouter);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
