@@ -1,10 +1,12 @@
+import { dataProducts } from "../data/products";
+
 const getProducts = (req, res) => {
   res.json(products);
 };
 
 const findProductById = (req, res) => {
   const id = Number(req.params.productID);
-  const product = products.find((product) => product.id === id);
+  const product = dataProducts.find((product) => product.id === id);
 
   if (!product) {
     return res.status(404).send("Product not found");
@@ -14,7 +16,7 @@ const findProductById = (req, res) => {
 
 const createProduct = (req, res) => {
   const newProduct = {
-    id: products.length + 1,
+    id: dataProducts.length + 1,
     name: req.body.name,
     price: req.body.price,
   };
@@ -24,21 +26,21 @@ const createProduct = (req, res) => {
 
 const updateProduct = (req, res) => {
   const id = Number(req.params.productID);
-  const index = products.findIndex((product) => product.id === id);
+  const index = dataProducts.findIndex((product) => product.id === id);
   const updatedProduct = {
-    id: products[index].id,
+    id: dataProducts[index].id,
     name: req.body.name,
     price: req.body.price,
   };
 
-  products[index] = updatedProduct;
+  dataProducts[index] = updatedProduct;
   res.status(200).json("Product updated");
 };
 
 const deleteProductById = (req, res) => {
   const id = Number(req.params.productID);
-  const index = products.findIndex((product) => product.id === id);
-  products.splice(index, 1);
+  const index = dataProducts.findIndex((product) => product.id === id);
+  dataProducts.splice(index, 1);
   res.status(200).json("Product deleted");
 };
 
