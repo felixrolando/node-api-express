@@ -1,7 +1,7 @@
-import { dataProducts } from "../data/products";
+import { dataProducts } from "../data/products.js";
 
 const getProducts = (req, res) => {
-  res.json(products);
+  res.json(dataProducts);
 };
 
 const findProductById = (req, res) => {
@@ -49,5 +49,5 @@ export {
   findProductById,
   createProduct,
   updateProduct,
-  findProductById,
+  deleteProductById,
 };
