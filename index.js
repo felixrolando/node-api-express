@@ -1,3 +1,5 @@
+import dotenv from "dotenv";
+dotenv.config();
 import { createServer } from "./server.js";
 
 const app = createServer();
